@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aesty Design — Five Website Concepts</title>
+<meta name="description" content="Five design directions for the Aesty Design website. Pick a favourite.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F2;--card:#fff;--ink:#16181A;--dim:#6B7076;--line:#E2E2DE;--accent:#5F7F79}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+  font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:clamp(28px,6vw,72px) clamp(18px,4vw,40px)}
+header.top{text-align:center;margin-bottom:clamp(32px,5vw,58px)}
+header.top img{width:74px;margin:0 auto 22px}
+.kick{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(28px,4.2vw,46px);font-weight:400;letter-spacing:-.025em;margin:14px 0 14px}
+header.top p{color:var(--dim);max-width:60ch;margin:0 auto;font-size:16.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+  gap:clamp(18px,2.4vw,26px)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(22,24,26,.12)}
+.shot{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--line);
+  border-bottom:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform .4s}
+.card:hover .shot img{transform:scale(1.03)}
+.body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1;gap:10px}
+.v{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent)}
+.card h2{font-size:21px;font-weight:500;letter-spacing:-.015em}
+.card p{color:var(--dim);font-size:15px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{background:var(--bg);border:1px solid var(--line);border-radius:999px;
+  padding:3px 11px;font-size:12px;color:var(--dim)}
+.go{display:inline-block;margin-top:12px;background:var(--ink);color:#fff;text-align:center;
+  padding:11px 20px;border-radius:999px;font-size:14px;font-weight:400;transition:background .2s}
+.go:hover{background:var(--accent)}
+footer{margin-top:clamp(36px,5vw,60px);padding-top:26px;border-top:1px solid var(--line);
+  color:var(--dim);font-size:14px;text-align:center}
+footer code{font-family:"IBM Plex Mono",monospace;font-size:13px;background:#fff;
+  border:1px solid var(--line);border-radius:5px;padding:2px 7px}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="assets/logo.png" alt="Aesty Design">
+    <p class="kick">Website concepts · Pick a direction</p>
+    <h1>Five versions of the Aesty Design site</h1>
+    <p>Same business, same photos, same words — five different visual directions. Open each one, scroll all the way down, and tell me which feels most like Aesty. We build out the winner from there.</p>
+  </header>
+
+  <div class="grid">
+
+    <article class="card">
+      <a class="shot" href="v1/index.html"><img src="assets/preview-v1.jpg" alt="Preview of version 01" loading="lazy" width="880" height="550"></a>
+      <div class="body">
+        <span class="v">Version 01</span>
+        <h2>Editorial</h2>
+        <p>Bone white and ink, big light serif headlines, hairline rules and a lot of air. Reads like a print magazine feature — closest in feel to the logo itself.</p>
+        <div class="tags"><span>Serif</span><span>Minimal</span><span>High-end</span></div>
+        <a class="go" href="v1/index.html">Open Version 01</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="v2/index.html"><img src="assets/preview-v2.jpg" alt="Preview of version 02" loading="lazy" width="880" height="550"></a>
+      <div class="body">
+        <span class="v">Version 02</span>
+        <h2>Warm Artisan</h2>
+        <p>Sand, clay and deep brown with arched photos and soft rounded cards. Handmade and friendly — the market-table version, warm rather than polished.</p>
+        <div class="tags"><span>Warm</span><span>Rounded</span><span>Approachable</span></div>
+        <a class="go" href="v2/index.html">Open Version 02</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="v3/index.html"><img src="assets/preview-v3.jpg" alt="Preview of version 03" loading="lazy" width="880" height="550"></a>
+      <div class="body">
+        <span class="v">Version 03</span>
+        <h2>Dark Luxe</h2>
+        <p>Near-black with gold rules and a soft glow behind each piece. The stones pop hardest here. Feels like a jeweller rather than a craft stall.</p>
+        <div class="tags"><span>Dark</span><span>Gold</span><span>Dramatic</span></div>
+        <a class="go" href="v3/index.html">Open Version 03</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="v4/index.html"><img src="assets/preview-v4.jpg" alt="Preview of version 04" loading="lazy" width="880" height="550"></a>
+      <div class="body">
+        <span class="v">Version 04</span>
+        <h2>Soft Modern</h2>
+        <p>Sage and mist, rounded cards, pill buttons. The most "ready to be a shop" of the five — product cards here become real listings with almost no redesign.</p>
+        <div class="tags"><span>Contemporary</span><span>Shop-ready</span><span>Sage</span></div>
+        <a class="go" href="v4/index.html">Open Version 04</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="v5/index.html"><img src="assets/preview-v5.jpg" alt="Preview of version 05" loading="lazy" width="880" height="550"></a>
+      <div class="body">
+        <span class="v">Version 05</span>
+        <h2>Gallery</h2>
+        <p>Black on white, museum labels, enormous photos and small precise type. Treats each piece as a catalogued work. The boldest and most design-forward option.</p>
+        <div class="tags"><span>Monochrome</span><span>Photo-first</span><span>Bold</span></div>
+        <a class="go" href="v5/index.html">Open Version 05</a>
+      </div>
+    </article>
+
+  </div>
+
+  <footer>
+    <p>All five use the real logo and product photos. Copy, stone names and properties are the real details; social links, market dates and pricing are still placeholders — see <code>TODO.md</code>.</p>
+  </footer>
+
+</div>
+</body>
+</html>
