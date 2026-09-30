@@ -1,11 +1,11 @@
 // POST /api/checkout — turns the bag into a Stripe Checkout Session and returns its URL.
 //
-// Prices, stock and shipping come from site/js/products.js on the server, never from the
+// Prices, stock and shipping come from js/products.js on the server, never from the
 // browser, so nobody can edit the bag to pay less. Card details are entered on Stripe's own
 // page and never touch this site.
 //
 // Needs one environment variable in Netlify: STRIPE_SECRET_KEY (sk_test_… or sk_live_…).
-import { PRODUCTS, SHIPPING_CAD, stockOf } from '../../site/js/products.js';
+import { PRODUCTS, SHIPPING_CAD, stockOf } from '../../js/products.js';
 
 export const config = { path: '/api/checkout' };
 

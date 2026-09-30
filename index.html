@@ -1,129 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aesty Design — Five Website Concepts</title>
-<meta name="description" content="Five design directions for the Aesty Design website. Pick a favourite.">
+<title>Aesty Design — Handmade crystal jewellery, Orillia</title>
+<meta name="description" content="Natural crystal earrings and bracelets, handmade one at a time in Orillia, Ontario. Local pickup or shipping across Canada. Custom orders welcome.">
+<link rel="canonical" href="https://aestydesign.ca/">
+<meta name="theme-color" content="#F7F5F1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aesty Design">
+<meta property="og:title" content="Aesty Design — Handmade crystal jewellery, Orillia">
+<meta property="og:description" content="Natural crystal earrings and bracelets, handmade one at a time in Orillia, Ontario.">
+<meta property="og:url" content="https://aestydesign.ca/">
+<meta property="og:image" content="https://aestydesign.ca/assets/hero-halloween-dish.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#F4F4F2;--card:#fff;--ink:#16181A;--dim:#6B7076;--line:#E2E2DE;--accent:#5F7F79}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;
-  font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1240px;margin:0 auto;padding:clamp(28px,6vw,72px) clamp(18px,4vw,40px)}
-header.top{text-align:center;margin-bottom:clamp(32px,5vw,58px)}
-header.top img{width:74px;margin:0 auto 22px}
-.kick{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--accent)}
-h1{font-size:clamp(28px,4.2vw,46px);font-weight:400;letter-spacing:-.025em;margin:14px 0 14px}
-header.top p{color:var(--dim);max-width:60ch;margin:0 auto;font-size:16.5px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-  gap:clamp(18px,2.4vw,26px)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
-  display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
-.card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(22,24,26,.12)}
-.shot{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--line);
-  border-bottom:1px solid var(--line)}
-.shot img{width:100%;height:100%;object-fit:cover;object-position:center;
-  transition:transform .4s}
-.card:hover .shot img{transform:scale(1.03)}
-.body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1;gap:10px}
-.v{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--accent)}
-.card h2{font-size:21px;font-weight:500;letter-spacing:-.015em}
-.card p{color:var(--dim);font-size:15px;flex:1}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
-.tags span{background:var(--bg);border:1px solid var(--line);border-radius:999px;
-  padding:3px 11px;font-size:12px;color:var(--dim)}
-.go{display:inline-block;margin-top:12px;background:var(--ink);color:#fff;text-align:center;
-  padding:11px 20px;border-radius:999px;font-size:14px;font-weight:400;transition:background .2s}
-.go:hover{background:var(--accent)}
-footer{margin-top:clamp(36px,5vw,60px);padding-top:26px;border-top:1px solid var(--line);
-  color:var(--dim);font-size:14px;text-align:center}
-footer code{font-family:"IBM Plex Mono",monospace;font-size:13px;background:#fff;
-  border:1px solid var(--line);border-radius:5px;padding:2px 7px}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-halloween-dish.jpg">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JewelryStore",
+  "name": "Aesty Design",
+  "url": "https://aestydesign.ca/",
+  "logo": "https://aestydesign.ca/assets/logo.png",
+  "image": "https://aestydesign.ca/assets/hero-halloween-dish.jpg",
+  "description": "Handmade natural crystal earrings and bracelets.",
+  "telephone": "+1-249-877-9822",
+  "address": { "@type": "PostalAddress", "addressLocality": "Orillia", "addressRegion": "ON", "addressCountry": "CA" },
+  "sameAs": ["https://facebook.com/profile.php?id=61586994360095"]
+}
+</script>
+<script type="module" src="js/app.js"></script>
 </head>
 <body>
-<div class="wrap">
+<a class="skip" href="#main">Skip to content</a>
 
-  <header class="top">
-    <img src="assets/logo.png" alt="Aesty Design">
-    <p class="kick">Website concepts · Pick a direction</p>
-    <h1>Five versions of the Aesty Design site</h1>
-    <p>Same business, same photos, same words — five different visual directions. Open each one, scroll all the way down, and tell me which feels most like Aesty. We build out the winner from there.</p>
-  </header>
-
-  <div class="grid">
-
-    <article class="card">
-      <a class="shot" href="v1/index.html"><img src="assets/preview-v1.jpg" alt="Preview of version 01" loading="lazy" width="880" height="550"></a>
-      <div class="body">
-        <span class="v">Version 01</span>
-        <h2>Editorial</h2>
-        <p>Bone white and ink, big light serif headlines, hairline rules and a lot of air. Reads like a print magazine feature — closest in feel to the logo itself.</p>
-        <div class="tags"><span>Serif</span><span>Minimal</span><span>High-end</span></div>
-        <a class="go" href="v1/index.html">Open Version 01</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <a class="shot" href="v2/index.html"><img src="assets/preview-v2.jpg" alt="Preview of version 02" loading="lazy" width="880" height="550"></a>
-      <div class="body">
-        <span class="v">Version 02</span>
-        <h2>Warm Artisan</h2>
-        <p>Sand, clay and deep brown with arched photos and soft rounded cards. Handmade and friendly — the market-table version, warm rather than polished.</p>
-        <div class="tags"><span>Warm</span><span>Rounded</span><span>Approachable</span></div>
-        <a class="go" href="v2/index.html">Open Version 02</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <a class="shot" href="v3/index.html"><img src="assets/preview-v3.jpg" alt="Preview of version 03" loading="lazy" width="880" height="550"></a>
-      <div class="body">
-        <span class="v">Version 03</span>
-        <h2>Dark Luxe</h2>
-        <p>Near-black with gold rules and a soft glow behind each piece. The stones pop hardest here. Feels like a jeweller rather than a craft stall.</p>
-        <div class="tags"><span>Dark</span><span>Gold</span><span>Dramatic</span></div>
-        <a class="go" href="v3/index.html">Open Version 03</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <a class="shot" href="v4/index.html"><img src="assets/preview-v4.jpg" alt="Preview of version 04" loading="lazy" width="880" height="550"></a>
-      <div class="body">
-        <span class="v">Version 04</span>
-        <h2>Soft Modern</h2>
-        <p>Sage and mist, rounded cards, pill buttons. The most "ready to be a shop" of the five — product cards here become real listings with almost no redesign.</p>
-        <div class="tags"><span>Contemporary</span><span>Shop-ready</span><span>Sage</span></div>
-        <a class="go" href="v4/index.html">Open Version 04</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <a class="shot" href="v5/index.html"><img src="assets/preview-v5.jpg" alt="Preview of version 05" loading="lazy" width="880" height="550"></a>
-      <div class="body">
-        <span class="v">Version 05</span>
-        <h2>Gallery</h2>
-        <p>Black on white, museum labels, enormous photos and small precise type. Treats each piece as a catalogued work. The boldest and most design-forward option.</p>
-        <div class="tags"><span>Monochrome</span><span>Photo-first</span><span>Bold</span></div>
-        <a class="go" href="v5/index.html">Open Version 05</a>
-      </div>
-    </article>
-
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#home" data-go="home">
+      <img src="assets/logo.png" alt="" width="44" height="44">
+      <span>Aesty</span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#home" data-go="home">Home</a>
+      <a href="#shop" data-go="shop">Shop</a>
+      <a href="#custom" data-go="custom">Custom</a>
+      <a href="#contact" data-go="contact">Contact</a>
+    </nav>
+    <button class="bag-btn" type="button" data-open-cart aria-label="Open bag">
+      <span>Bag</span><span class="count" data-cart-count>0</span>
+    </button>
   </div>
+</header>
 
-  <footer>
-    <p>All five use the real logo and product photos. Copy, stone names and properties are the real details; social links, market dates and pricing are still placeholders — see <code>TODO.md</code>.</p>
-  </footer>
+<div id="main">
+
+<!-- HOME -->
+<main class="screen" data-screen="home" data-label="Home">
+  <section class="hero">
+    <img src="assets/hero-halloween-dish.jpg" alt="Halloween charm earrings on a gold-rimmed glass dish beside a quartz geode" width="1536" height="2048" fetchpriority="high">
+    <div class="hero-shade"></div>
+    <div class="hero-copy">
+      <p class="hero-kick">Handmade in Orillia, Ontario</p>
+      <h1>Small stones, made with care.</h1>
+      <p class="hero-lede">Natural crystal earrings and bracelets, strung one at a time by Angel with gold-plated and sterling silver beads.</p>
+      <div class="row-gap">
+        <a class="pill pill-light" href="#shop" data-go="shop">Shop the collection</a>
+        <a class="pill pill-ghost" href="#custom" data-go="custom">Request a custom piece</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts">
+    <div class="wrap facts-in">
+      <div><span class="serif">Natural stones</span><span>Amethyst, amazonite, jasper, carnelian and more</span></div>
+      <div><span class="serif">Gold plate &amp; sterling</span><span>Hooks and spacers chosen to last</span></div>
+      <div><span class="serif">Pickup or shipping</span><span>Local pickup in Orillia, or shipped to you</span></div>
+      <div><span class="serif">From $10</span><span>Charm earrings to premium bracelets</span></div>
+    </div>
+  </section>
+
+  <section class="wrap sec-top">
+    <div class="sec-head">
+      <div>
+        <p class="kick">This season</p>
+        <h2 class="h2">A few favourites</h2>
+      </div>
+      <a class="under" href="#shop" data-go="shop">See everything</a>
+    </div>
+    <div class="grid" data-featured></div>
+  </section>
+
+  <section class="wrap sec-pad">
+    <div class="split">
+      <div class="photo photo-45">
+        <img src="assets/bracelet-amethyst-gold.jpg" alt="Amethyst bracelet on a gold-rimmed glass dish" loading="lazy" width="1104" height="1962" style="object-position:50% 70%">
+      </div>
+      <div class="stack">
+        <p class="kick">About Aesty</p>
+        <h2 class="h2">Every piece passes through Angel's hands.</h2>
+        <p class="body">Aesty Design started in 2025 at a small table in Orillia. Angel picks each stone for its colour and feel, then strings it with gold-plated or sterling silver beads so it wears well for years, not weeks.</p>
+        <p class="body">Right now that means earrings and bracelets. More is on the way. If you have something in mind that isn't here yet, ask. Custom work is half the fun.</p>
+        <a class="under self-start" href="#custom" data-go="custom">Start a custom order</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- SHOP -->
+<main class="screen" data-screen="shop" data-label="Shop" hidden>
+  <section class="wrap page-top">
+    <p class="kick">The collection</p>
+    <h1 class="h1">Shop</h1>
+    <p class="muted lede">Each piece is one of a kind, so what you see is what's in stock. Local pickup in Orillia, or shipping across Canada.</p>
+    <div class="filters">
+      <div class="chip-row" role="group" aria-label="Filter by type">
+        <span class="chip-label">Type</span>
+        <span class="chips" data-type-chips></span>
+      </div>
+      <div class="chip-row" role="group" aria-label="Filter by colour">
+        <span class="chip-label">Colour</span>
+        <span class="chips" data-colour-chips></span>
+      </div>
+      <p class="small muted" data-result-label aria-live="polite"></p>
+    </div>
+  </section>
+  <section class="wrap shop-body">
+    <div class="grid" data-products></div>
+    <div class="empty" data-no-results hidden>
+      <p class="serif empty-title">Nothing in that colour right now.</p>
+      <p>Angel can make one. Tell her what you're after.</p>
+      <a class="under" href="#custom" data-go="custom">Request a custom piece</a>
+    </div>
+  </section>
+</main>
+
+<!-- CUSTOM -->
+<main class="screen" data-screen="custom" data-label="Custom orders" hidden>
+  <section class="wrap page-top sec-bottom split split-start">
+    <div class="stack sticky">
+      <p class="kick">Custom orders</p>
+      <h1 class="h1 h1-custom">Made for you, or for someone you love.</h1>
+      <p class="body">Tell Angel what you have in mind: a stone, a colour, a birthday, a feeling. She'll get back to you within a couple of days with ideas and a price before anything is made.</p>
+      <ol class="steps">
+        <li><span>1</span>Send the form. It only takes a minute.</li>
+        <li><span>2</span>Angel replies with stone options and a quote.</li>
+        <li><span>3</span>Once you're happy, she makes it. Pickup or shipping.</li>
+      </ol>
+      <div class="photo photo-54">
+        <img src="assets/earrings-unakite-drops.jpg" alt="Unakite drop earrings" loading="lazy" width="1536" height="2048" style="object-position:50% 70%">
+      </div>
+    </div>
+
+    <div>
+      <form class="card form" name="custom" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-custom-form>
+        <input type="hidden" name="form-name" value="custom">
+        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <input type="hidden" name="piece" value="Bracelet">
+        <input type="hidden" name="metal" value="Gold">
+        <div class="field">
+          <span class="label" id="piece-l">What would you like?</span>
+          <div class="chips" role="group" aria-labelledby="piece-l" data-choice="piece" data-options="Bracelet|Earrings|Necklace|Something else"></div>
+        </div>
+        <div class="field">
+          <span class="label" id="metal-l">Metal</span>
+          <div class="chips" role="group" aria-labelledby="metal-l" data-choice="metal" data-options="Gold|Silver|Either"></div>
+        </div>
+        <div class="field">
+          <label class="label" for="stones">Stones or colours you love</label>
+          <input class="input" id="stones" name="stones" placeholder="e.g. amethyst, something deep green, my birthstone">
+        </div>
+        <div class="field">
+          <label class="label" for="budget">Budget</label>
+          <select class="input" id="budget" name="budget">
+            <option>Under $20</option><option>$20 to $30</option><option>$30 to $50</option><option>$50 and up</option><option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label" for="notes">Anything else</label>
+          <textarea class="input" id="notes" name="notes" rows="4" placeholder="Who it's for, an occasion, a piece you saw and liked…"></textarea>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label class="label" for="cname">Your name</label>
+            <input class="input" id="cname" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="label" for="ccontact">Email or phone</label>
+            <input class="input" id="ccontact" name="contact" autocomplete="email" required>
+          </div>
+        </div>
+        <p class="form-error" data-error hidden></p>
+        <button class="btn btn-dark" type="submit">Send to Angel</button>
+      </form>
+
+      <div class="card sent" data-custom-sent hidden tabindex="-1">
+        <p class="kick">Sent</p>
+        <h2 class="h2 h2-sm">Thank you. Angel will be in touch soon.</h2>
+        <p class="body">Expect a reply within a couple of days. If it's urgent, text or call <a class="under-link" href="tel:+12498779822">(249) 877-9822</a>.</p>
+        <button class="btn btn-line self-start" type="button" data-custom-reset>Send another</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- CONTACT -->
+<main class="screen" data-screen="contact" data-label="Contact" hidden>
+  <section class="wrap page-top sec-bottom">
+    <p class="kick">Get in touch</p>
+    <h1 class="h1 h1-contact">Say hello. Angel answers every message herself.</h1>
+    <div class="contact-grid">
+      <div class="card tile">
+        <p class="label">Text or call</p>
+        <a class="serif tile-big" href="tel:+12498779822">(249) 877-9822</a>
+        <p class="muted">Texts are easiest. Photos of what you're after are welcome.</p>
+      </div>
+      <div class="card tile">
+        <p class="label">Facebook</p>
+        <a class="serif tile-big" href="https://facebook.com/profile.php?id=61586994360095" target="_blank" rel="noopener">Aesty Design</a>
+        <p class="muted">New pieces land here first. Message the page any time.</p>
+      </div>
+      <div class="card tile">
+        <p class="label">Pickup &amp; shipping</p>
+        <p class="serif tile-big">Orillia, Ontario</p>
+        <p class="muted">Local pickup arranged by text. Shipping across Canada is a flat <span data-ship-rate>$12</span>.</p>
+      </div>
+      <div class="card tile">
+        <p class="label">Payment</p>
+        <p class="serif tile-big">Cash, e-transfer, card</p>
+        <p class="muted">All three for local pickup. Card for shipped orders.</p>
+      </div>
+    </div>
+  </section>
+</main>
 
 </div>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="stack-sm">
+      <img src="assets/logo.png" alt="Aesty Design" width="72" height="72" loading="lazy">
+      <p class="small muted">Handmade crystal jewellery from Orillia, Ontario. Since 2025.</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#shop" data-go="shop">Shop</a>
+      <a href="#custom" data-go="custom">Custom orders</a>
+      <a href="#contact" data-go="contact">Contact</a>
+    </nav>
+    <div class="foot-contact">
+      <a href="tel:+12498779822">(249) 877-9822</a>
+      <a href="https://facebook.com/profile.php?id=61586994360095" target="_blank" rel="noopener">Facebook</a>
+      <span class="muted">aestydesign.ca</span>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" data-toast role="status" aria-live="polite" hidden>
+  <span data-toast-text></span>
+  <button type="button" data-open-cart>View bag</button>
+</div>
+
+<!-- BAG -->
+<div class="scrim" data-close-cart hidden></div>
+<aside class="drawer" data-drawer role="dialog" aria-modal="true" aria-labelledby="bag-title" hidden>
+  <div class="drawer-head">
+    <h2 id="bag-title" class="serif">Your bag</h2>
+    <button class="close" type="button" data-close-cart aria-label="Close bag">×</button>
+  </div>
+
+  <div class="bag-empty" data-view="empty">
+    <p class="serif empty-title">Nothing here yet.</p>
+    <p>Everything is one of a kind, so once it's gone, it's gone.</p>
+    <button class="btn btn-dark" type="button" data-close-shop>Browse the shop</button>
+  </div>
+
+  <div class="bag-list" data-view="list" hidden>
+    <div class="bag-items" data-cart-items></div>
+    <div class="bag-foot">
+      <div class="line serif big"><span>Subtotal</span><span data-subtotal></span></div>
+      <p class="small muted">Pickup in Orillia is free. Shipping across Canada is a flat <span data-ship-rate>$12</span>.</p>
+      <button class="btn btn-dark" type="button" data-start-checkout>Checkout</button>
+    </div>
+  </div>
+
+  <form class="bag-form" name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-view="form" data-order-form hidden>
+    <input type="hidden" name="form-name" value="order">
+    <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <input type="hidden" name="items">
+    <input type="hidden" name="total">
+    <input type="hidden" name="fulfilment" value="pickup">
+    <input type="hidden" name="payment" value="card">
+    <div class="bag-form-body">
+      <button class="back" type="button" data-back-to-bag>← Back to bag</button>
+      <div class="field">
+        <span class="label" id="fulfil-l">How would you like it?</span>
+        <div class="fulfil" role="group" aria-labelledby="fulfil-l" data-fulfil-chips></div>
+      </div>
+      <div class="field">
+        <label class="label" for="oname">Name</label>
+        <input class="input" id="oname" name="name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label class="label" for="oemail">Email</label>
+        <input class="input" id="oemail" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field" data-pickup-only>
+        <label class="label" for="ophone">Phone (to arrange pickup)</label>
+        <input class="input" id="ophone" name="phone" type="tel" autocomplete="tel" required>
+      </div>
+      <div class="field">
+        <span class="label" id="pay-l">Payment</span>
+        <div class="chips" role="group" aria-labelledby="pay-l" data-pay-chips></div>
+        <p class="small muted" data-pay-note></p>
+      </div>
+    </div>
+    <div class="bag-foot">
+      <div class="line"><span>Subtotal</span><span data-subtotal></span></div>
+      <div class="line muted"><span data-fulfil-line></span><span data-fulfil-cost></span></div>
+      <div class="line serif big total"><span>Total</span><span data-total></span></div>
+      <p class="form-error" data-error hidden></p>
+      <button class="btn btn-dark" type="submit" data-submit-order>Place order</button>
+    </div>
+  </form>
+
+  <div class="bag-done" data-view="done" hidden tabindex="-1">
+    <p class="kick">Order received</p>
+    <h3 class="serif done-title">Thank you.</h3>
+    <p class="body" data-done-message></p>
+    <p class="small muted" data-order-no></p>
+    <button class="btn btn-dark self-start" type="button" data-close-home>Done</button>
+  </div>
+</aside>
+
+<noscript><p class="noscript">The shop needs JavaScript. You can still order by text at (249) 877-9822.</p></noscript>
 </body>
 </html>

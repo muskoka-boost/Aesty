@@ -1,6 +1,6 @@
-# Netlify hosts the site (the site/ folder), the checkout function and the two forms.
+# Netlify hosts the site, the checkout function and the two forms.
 [build]
-  publish = "site"
+  publish = "."
   functions = "netlify/functions"
 
 [functions]

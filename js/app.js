@@ -1,4 +1,5 @@
 import { PRODUCTS, COLOURS, TYPES, FEATURED, SHIPPING_CAD, stockOf } from './products.js';
+import { FORM_ENDPOINT, CHECKOUT_ENDPOINT, PHONE, PHONE_LABEL } from './config.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -107,13 +108,26 @@ function initChoices(form) {
 }
 
 async function postForm(form) {
-  // Netlify Forms: POST the url-encoded fields to any static path on the site.
-  const res = await fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(new FormData(form)).toString(),
-  });
+  const res = FORM_ENDPOINT
+    // Formspree (or any service that accepts a plain form post)
+    ? await fetch(FORM_ENDPOINT, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
+    // Netlify Forms: POST the url-encoded fields to any static path on the site.
+    : await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString(),
+    });
   if (!res.ok) throw new Error('Form post failed: ' + res.status);
+}
+
+// Error line with a pre-filled text message to Angel, so an order is never lost to a failed post.
+function showError(el, message, smsBody) {
+  const link = document.createElement('a');
+  link.className = 'under-link';
+  link.href = `sms:${PHONE}?&body=${encodeURIComponent(smsBody)}`;
+  link.textContent = 'Text it to Angel instead';
+  el.replaceChildren(message + ' ', link, ` or call ${PHONE_LABEL}.`);
+  el.hidden = false;
 }
 
 const customForm = $('[data-custom-form]');
@@ -128,8 +142,10 @@ customForm.addEventListener('submit', async e => {
     const sent = $('[data-custom-sent]'); sent.hidden = false; sent.focus();
     window.scrollTo(0, 0);
   } catch {
-    err.textContent = "That didn't go through. Please try again, or text Angel at (249) 877-9822.";
-    err.hidden = false;
+    const f = customForm.elements;
+    showError(err, "That didn't go through.",
+      `Hi Angel, custom request from ${f.name.value} (${f.contact.value}): ${f.piece.value}, ${f.metal.value}. `
+      + `Stones/colours: ${f.stones.value || '-'}. Budget: ${f.budget.value}. ${f.notes.value}`);
   } finally { btn.disabled = false; }
 });
 $('[data-custom-reset]').addEventListener('click', () => {
@@ -251,13 +267,13 @@ orderForm.addEventListener('submit', async e => {
   const f = orderForm.elements;
   try {
     if (state.pay === 'card') {
-      const res = await fetch('/api/checkout', {
+      const res = await fetch(CHECKOUT_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items: cart, fulfil: state.fulfil, name: f.name.value, email: f.email.value, phone: f.phone.value }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.url) throw new Error(data.error || 'checkout');
+      if (!res.ok || !data.url) throw new Error(data.error || "Card payment isn't available on the site yet.");
       location.href = data.url; // Stripe-hosted payment page
       return;
     }
@@ -272,9 +288,11 @@ orderForm.addEventListener('submit', async e => {
       ? 'Angel will text you to arrange a pickup time in Orillia. Bring cash when you come.'
       : 'Angel will text you the e-transfer details and a pickup time in Orillia.', orderNo);
   } catch (ex) {
-    const known = ex.message && ex.message !== 'checkout' && !ex.message.startsWith('Form');
-    err.textContent = (known ? ex.message + ' Or' : "That didn't go through. Please try again, or") + ' text Angel at (249) 877-9822.';
-    err.hidden = false;
+    const lines = cart.map(c => `${c.qty} x ${byId[c.id].name} (${money(byId[c.id].price * c.qty)})`).join(', ');
+    const how = state.fulfil === 'ship' ? 'shipped' : 'for pickup in Orillia';
+    showError(err, ex.message.startsWith('Form') || ex instanceof TypeError ? "That didn't go through." : ex.message,
+      `Hi Angel, I'd like to order ${lines}, ${how}, paying by ${{ card: 'card', etransfer: 'e-transfer', cash: 'cash' }[state.pay]}. `
+      + `Name: ${f.name.value}. Email: ${f.email.value}.`);
   } finally { btn.disabled = false; }
 });
 
