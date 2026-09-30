@@ -1,53 +1,82 @@
-# Aesty Design — website concepts
+# Aesty Design — website
 
-Five design directions for **Aesty Design**, a handmade crystal and beaded jewelry business in
-Orillia, Ontario. This is a showcase build, not a shop — no checkout yet.
+Shop site for **Aesty Design**, handmade crystal jewellery from Orillia, Ontario.
+Built from the Claude Design file *Aesty Design.dc.html* (Home, Shop, Custom, Contact, and the bag).
 
-## Viewing
+```
+site/                      everything that gets published
+  index.html               all four pages (switched with #home, #shop, #custom, #contact)
+  css/style.css
+  js/products.js           ← the catalogue: names, prices, stock, shipping rate
+  js/app.js                shop filters, bag, checkout, forms
+  assets/                  product photos, hero photos, logo
+netlify/functions/
+  checkout.mjs             creates the Stripe payment page (prices checked server-side)
+netlify.toml               hosting config
+v1/ … v5/, index.html      the old five concepts — not published, safe to delete
+```
 
-Open `index.html` locally, or browse the published site (see **Deploying** below). The landing
-page previews and links to all five versions.
+Plain HTML/CSS/JS. No build step, no npm install, no framework.
 
-| | Version | Direction |
+## How selling works
+
+| Customer picks | What happens | Money |
 |---|---|---|
-| 01 | [`v1/`](v1/) | **Editorial** — bone white, light serif, hairline rules, lots of air |
-| 02 | [`v2/`](v2/) | **Warm Artisan** — sand and clay, arched photos, rounded and friendly |
-| 03 | [`v3/`](v3/) | **Dark Luxe** — near-black, gold rules, glow behind each piece |
-| 04 | [`v4/`](v4/) | **Soft Modern** — sage and mist, rounded cards, most shop-ready |
-| 05 | [`v5/`](v5/) | **Gallery** — black on white, museum labels, enormous photos |
+| **Card** (pickup or shipping) | Sent to a Stripe-hosted payment page. Stripe collects the card (and shipping address when shipping) and emails Angel the order. | Paid up front |
+| **E-transfer** (pickup only) | Order goes to Netlify Forms, which emails Angel. She texts the e-transfer details. | Before pickup |
+| **Cash** (pickup only) | Same as above. | At pickup |
+| **Custom request form** | Netlify Forms emails Angel. | Quoted by Angel |
 
-## Structure
+Card details never touch this site. Prices are read from `site/js/products.js` on the server when
+the Stripe page is created, so editing the bag in the browser can't change what's charged.
+
+Until Stripe is connected, choosing Card shows *"Card payments are not switched on yet"* and
+customers can still order with e-transfer or cash. The site works fine without it.
+
+## Going live — one-time setup
+
+1. **Netlify** (free): netlify.com → *Add new site → Import from GitHub* → pick this repo and
+   branch. Settings are read from `netlify.toml`, so just press Deploy.
+2. **Forms**: Netlify → *Forms* → enable form detection, redeploy once, then
+   *Forms → Notifications → Email* to Angel's address for both `order` and `custom`.
+3. **Stripe** (no monthly fee; about 2.9% + 30¢ per card sale in Canada): sign up at stripe.com,
+   add the business and bank details. Then Developers → API keys → copy the **secret key**.
+   In Netlify: *Site configuration → Environment variables* → add `STRIPE_SECRET_KEY`. Redeploy.
+   - Start with the `sk_test_…` key and pay with card `4242 4242 4242 4242` to try it end to end,
+     then swap in the `sk_live_…` key.
+   - In Stripe → Settings → Emails, turn on *Successful payments* for customers and team notifications for Angel.
+4. **Domain**: Netlify → *Domain management* → add `aestydesign.ca` and follow the DNS steps.
+   HTTPS is automatic.
+
+Later, for markets: Stripe sells card readers (and supports tap-to-pay on phones in some
+setups) on the same account, so in-person and online sales land in one place. Square is the
+other common choice for markets. Either works alongside this site.
+
+## Everyday edits (all in `site/js/products.js`)
+
+- **Sold something?** Add `sold: true` to it. It stays on the page marked *Sold*.
+- **Have several of a piece?** Add `stock: 3` (default is 1).
+- **New piece:** copy a line, change `id`, name, price, photo path; put the photo in `site/assets/`.
+- **Change featured pieces:** edit `FEATURED`.
+- **Shipping price:** `SHIPPING_CAD`.
+
+## Still to confirm
+
+- `SHIPPING_CAD` is set to **$12** as a placeholder. Check it against a real Canada Post rate.
+- Stock: two people could buy the same one-of-a-kind piece within minutes of each other. Mark
+  pieces `sold: true` promptly; if it does happen, Stripe refunds are one click.
+- Sales tax: not charged. Businesses under $30,000/yr in sales don't have to register for HST.
+  Stripe Tax can be switched on later if needed.
+- The hero photo is the Halloween dish. After October, change `hero-halloween-dish.jpg` in
+  `site/index.html` to `hero-amazonite-leaf.jpg` (both are in `assets/`).
+- The site's links use `aestydesign.ca`; update the tags in `site/index.html`, `robots.txt` and
+  `sitemap.xml` if the domain is different.
+
+## Running locally
 
 ```
-index.html          chooser page linking to all five
-assets/             logo variants, product photos and crops (shared by every version)
-v1/ … v5/           one index.html + style.css per version
-TODO.md             every placeholder still to be filled in
+cd site && python3 -m http.server 8000
 ```
 
-Plain HTML and CSS — no build step, no dependencies, no framework. Fonts load from Google Fonts;
-everything else is local. Each version is fully self-contained apart from the shared `assets/`
-folder, so the four that don't get picked can simply be deleted.
-
-## Deploying to GitHub Pages
-
-1. Repo **Settings → Pages**
-2. **Source**: *Deploy from a branch*
-3. **Branch**: the branch holding this code, folder `/ (root)`
-4. Save. The site appears at `https://<owner>.github.io/<repo>/` after a minute or two.
-
-`.nojekyll` is committed so GitHub Pages serves the files as-is.
-
-## Content notes
-
-- All copy, product names, stone names and properties are the real details supplied by the
-  business. Social links, market dates and pricing are placeholders — see [`TODO.md`](TODO.md).
-- Every version is responsive and works down to phone width.
-- Product photos are the originals plus square and wide crops generated from them, so the
-  different layouts all have a sensible aspect ratio to use.
-
-## Regenerating the chooser thumbnails
-
-`assets/preview-v*.jpg` are 1440×900 screenshots of each version's hero, used by the chooser
-page. If you change a version's design, retake that screenshot at 1440×900 and resize it to
-880×550 so the card keeps its 16:10 box.
+Everything works except the forms and card checkout, which need Netlify. To test those locally, use
+`npx netlify dev` from the repo root.
