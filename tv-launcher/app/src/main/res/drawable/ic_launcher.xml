@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp" android:height="48dp"
+    android:viewportWidth="48" android:viewportHeight="48">
+    <!-- a faceted crystal -->
+    <path android:fillColor="#D9B77E" android:pathData="M24,4 L38,18 L24,44 L10,18 Z" />
+    <path android:fillColor="#F4EEE6" android:fillAlpha="0.55" android:pathData="M24,4 L30,18 L24,44 L18,18 Z" />
+    <path android:fillColor="#000000" android:fillAlpha="0.18" android:pathData="M10,18 L38,18 L24,22 Z" />
+</vector>

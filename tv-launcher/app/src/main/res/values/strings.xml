@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Aesty Home</string>
+    <string name="favourites">Favourites</string>
+    <string name="apps">Apps</string>
+    <string name="system">System</string>
+    <string name="settings">Settings</string>
+    <string name="inputs">Inputs</string>
+    <string name="network">Network</string>
+    <string name="add_favourite">Add to Favourites</string>
+    <string name="remove_favourite">Remove from Favourites</string>
+    <string name="move_left">Move left</string>
+    <string name="move_right">Move right</string>
+    <string name="app_info">App info</string>
+    <string name="favourites_hint">Long-press OK on any app to pin it here</string>
+    <string name="cannot_open">Couldn\'t open that</string>
+</resources>
